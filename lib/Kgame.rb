@@ -1,7 +1,7 @@
 require 'httparty'
 
 class Kgame
-  attr_accessor :title, :paragraph
+  attr_accessor :id, :teams
   def initialize()
     get_data
   end
@@ -15,11 +15,11 @@ class Kgame
   end
 
   def id
-     data["id"]["teams"]
+    data.first["id"]
   end
 
-  def paragraph
-    data["response"]["paragraphs"]
+  def teams
+    data.first["teams"]
   end
 end
 
